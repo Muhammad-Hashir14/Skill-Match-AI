@@ -33,7 +33,7 @@ python app.py
 ```
 
 ### Architecuture
-![SkillMatchAI](./Architecture\Architecure.png)
+![SkillMatchAI](./Architecture/Architecure.png)
 
 ### 💻 Tech Stack Used
 - Python
