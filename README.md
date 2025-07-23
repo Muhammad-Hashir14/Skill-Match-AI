@@ -4,7 +4,7 @@ Skill Match AI is a cutting-edge tool designed for HR teams to efficiently match
 
 ## How to Run
 
-### 1- clone Respository
+### 1- Clone Respository
 ```bash
 git clone https://github.com/Muhammad-Hashir14/Skill-Match-AI.git
 ```
@@ -31,12 +31,12 @@ GEMINI_API_KEY="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```bash
 python app.py
 ```
-
+___
 ## Architecuture
 <p align="center">
-  <img src="./Architecture/Architecure.png" alt="SkillMatchAI" width="400"/>
+  <img src="./Architecture/Architecure.png" alt="SkillMatchAI" width="300"/>
 </p>
-
+___
 
 
 ### 💻 Tech Stack Used
@@ -45,3 +45,9 @@ python app.py
 - Langchain
 - Gemini (Google LLM)
 - FAISS (Vector Database)
+
+___
+🙋‍♂️ Author:
+
+- Developed by Muhammad Hashir
+
