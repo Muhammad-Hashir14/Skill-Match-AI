@@ -31,13 +31,11 @@ GEMINI_API_KEY="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```bash
 python app.py
 ```
-___
+
 ## Architecuture
 <p align="center">
   <img src="./Architecture/Architecure.png" alt="SkillMatchAI" width="300"/>
 </p>
-___
-
 
 ### 💻 Tech Stack Used
 - Python
