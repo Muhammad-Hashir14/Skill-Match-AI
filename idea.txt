@@ -82,17 +82,3 @@ resume_matcher/
 🧠 Sample Workflow
 User Uploads Resume + JD
 
-text_extraction.py cleans and extracts text
-
-embedding.py converts both to vectors via Gemini
-
-matcher.py stores vectors in FAISS and computes similarity
-
-cover_letter_gen.py uses Gemini + prompt template to generate a custom letter
-
-Results displayed in Django frontend
-
-📌 Resume Line (for your CV)
-Developed an AI-powered Resume Screening & Job Match web app using Django, FAISS, and Gemini LLM to analyze skills, compute fit scores, and generate tailored cover letters.
-
-Let me know if you want a basic code scaffold or help with a particular module (e.g., FAISS integration, Gemini prompting, or resume parsing).
