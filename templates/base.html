@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillMatchAI</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Skill Match AI</h1>
+    <p>Find Top Resumes for Quick Hiring — Free Resume Analysis</p>
+    <form action="/results" method="POST" enctype="multipart/form-data">
+      <label for="resumes">Upload Resumes (PDF files only):</label>
+      <input type="file" name="resumes" id="resumes" accept=".pdf" multiple required>
+
+      <label for="job_description">Upload Job Description:</label>
+      <textarea name="job_description" id="job_description" placeholder="Paste your job description here..." required></textarea>
+
+      <button type="submit">Analyze Now</button>
+    </form>
+  </div>
+</body>
+</html>

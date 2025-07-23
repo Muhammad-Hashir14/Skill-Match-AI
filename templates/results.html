@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Skill Match AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/results.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Skill Match AI - Results</h1>
+
+    <h2>🏆 Top Resume</h2>
+    <div class="highlight">
+      <p><strong>Resume:</strong> {{ ranks[0]["Resume"] }}</p>
+      <p><strong>Similarity Score:</strong> <span class="score">{{ ranks[0]["Similarity"] }}%</span></p>
+    </div>
+
+    <h2>📊 Analysis</h2>
+    <div class="analysis-output">
+      <p>{{ output|safe }}</p>
+    </div>
+
+    <h2>📁 All Resume Matches</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Resume Name</th>
+          <th>Similarity Score (%)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for resume in ranks %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ resume.Resume }}</td>
+          <td class="score">{{ resume.Similarity }}%</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+💼 Intelligent Resume Screener & Job Match App
+🔧 Tech Stack
+Frontend/UI: Django templates (or optionally React/Streamlit frontend)
+
+Backend: Django (Python)
+
+Vector DB: FAISS (for local, fast similarity search)
+
+LLM: Gemini via LangChain (for NLP tasks, analysis, generation)
+
+Others: PyPDF2 / docx2txt (to extract text from files), pandas (for metadata), SQLite/Postgres (user/job data)
+
+📁 Key Features
+1. Resume & Job Description Upload
+Users (HR or candidates) can upload:
+
+Resume (PDF/DOCX)
+
+Job Description (text or PDF)
+
+Backend extracts clean text from both.
+
+2. Skill & Keyword Extraction
+Use Gemini to extract key:
+
+Skills
+
+Tools/technologies
+
+Roles/responsibilities
+
+Store this in structured format (e.g., JSON, tags).
+
+3. Semantic Matching using FAISS
+Convert both resume and job description into vector embeddings (via Gemini embeddings or LangChain-compatible ones).
+
+Store in FAISS index.
+
+Run similarity search to compute match score (e.g., cosine similarity).
+
+Show top matching resumes (if HR) or job matches (if candidate).
+
+4. LLM-Powered Insights
+Show:
+
+Match Score (%)
+
+Top missing skills
+
+Summary of why it’s a good/bad fit
+
+Optional: Generate a tailored cover letter using Gemini with a prompt like:
+
+"Write a short cover letter for a candidate with the following resume applying to the following job..."
+
+5. Admin/HR Panel
+View uploaded resumes
+
+Filter by match %, skills
+
+Export shortlist (CSV/PDF)
+
+🗃️ Folder Structure (Sample)
+cpp
+Copy
+Edit
+resume_matcher/
+├── core/
+│   ├── views.py
+│   ├── models.py
+│   ├── utils/
+│   │   ├── text_extraction.py
+│   │   ├── embedding.py
+│   │   ├── matcher.py
+│   │   └── cover_letter_gen.py
+├── faiss_index/
+│   └── resumes.index
+├── templates/
+├── static/
+├── requirements.txt
+└── manage.py
+🧠 Sample Workflow
+User Uploads Resume + JD
+
+text_extraction.py cleans and extracts text
+
+embedding.py converts both to vectors via Gemini
+
+matcher.py stores vectors in FAISS and computes similarity
+
+cover_letter_gen.py uses Gemini + prompt template to generate a custom letter
+
+Results displayed in Django frontend
+
+📌 Resume Line (for your CV)
+Developed an AI-powered Resume Screening & Job Match web app using Django, FAISS, and Gemini LLM to analyze skills, compute fit scores, and generate tailored cover letters.
+
+Let me know if you want a basic code scaffold or help with a particular module (e.g., FAISS integration, Gemini prompting, or resume parsing).

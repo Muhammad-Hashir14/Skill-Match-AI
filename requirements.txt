@@ -1,2 +1,10 @@
 flask
+langchain
+langchain_community
+pypdf
+reportlab
+sentence_transformers 
+faiss-cpu
+langchain-google-genai
+markdown
 -e .
