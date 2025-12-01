@@ -1,7 +1,14 @@
 from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
 from langchain.embeddings import HuggingFaceEmbeddings
-from src.helper import maketempdir, load_doc, load_HF_Embeddings, l2_to_similarity, find_perc, get_max_similarity, find_content
+from src.helper import (
+    maketempdir,
+    load_doc,
+    load_HF_Embeddings,
+    find_perc,
+    get_max_similarity,
+    find_content
+)
 import faiss
 from langchain_community.docstore.in_memory import InMemoryDocstore
 from langchain_community.vectorstores import FAISS
@@ -22,7 +29,6 @@ load_dotenv()
 app = Flask(__name__)
 embeddings = load_HF_Embeddings()
 
-index = faiss.IndexFlatL2(384)
 
 if "GOOGLE_API_KEY" not in os.environ:
     os.environ["GOOGLE_API_KEY"] = os.environ.get("GEMINI_API_KEY")
@@ -67,12 +73,17 @@ def upload_resumes():
         jd_embedding=embeddings.embed_query(jd)
         top_k = len(saved_files)
         print(top_k)
-        results = vector_store.similarity_search_with_score_by_vector(jd_embedding, k=top_k)    
+        results = vector_store.similarity_search_with_score_by_vector(jd_embedding, k=top_k)
         print(results)
-        ranks = find_perc(results)
+
+        # calculate correct cosine similarity ranking
+        ranks = find_perc(results, jd_embedding, embeddings)
+
         top_resume = get_max_similarity(ranks)
         content = find_content(results, top_resume)
+
         prompt = resume_analysis_prompt(content, top_resume["Similarity"])
+
         result = llm(prompt)
         print(result)
         output = markdown.markdown(result.content)
